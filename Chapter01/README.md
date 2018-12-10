@@ -136,3 +136,15 @@ mac 版：https://dl.google.com/android/repository/android-ndk-r16b-darwin-x86_6
 =======
 https://github.com/google/breakpad
 例子里只提供了 Mac 的工具，如果需要其他平台的工具，可以去编译源码获得，可以参照 breakpad 项目的说明文档来编译获取。
+
+### 注意事项
+##### 需要自己编译brakpad获取minidump_stackwalker工具
+##### 输出log
+```
+/Users/wangyang/company/breakpad/src/processor/minidump_stackwalk /Users/wangyang/company/Chapter01/c7d1a83c-d7fa-4cd7-dd2eb1af-3ea72455.dmp >crashlog.txt  
+```
+##### 日志分析
+
+```
+/Users/wangyang/sdk/android-ndk-r16b/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64/bin/aarch64-linux-android-addr2line -f -C -e /Users/wangyang/company/Chapter01/sample/build/intermediates/transforms/mergeJniLibs/debug/0/lib/x86/libcrash-lib.so 0x515
+```
